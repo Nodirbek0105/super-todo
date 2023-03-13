@@ -11,11 +11,24 @@
   <body>
     <div class="container">
         <form action="" data-form="">
-          <input type="text" value="" data-input="" placeholder="your todo" />
+          <input type="text" value="" required data-input="" placeholder="your todo" />
+          <input type="datetime-local" required name="dueDate">
           <button class="btn-primary" type="submit">submit</button>
         </form>
         <ul data-ul=""></ul>
     </div>
+    <template>
+      <li>
+        <div data-div-parent>
+          <div data-div=""></div>
+          <img data-id src="./img/trash.svg" alt="">
+        </div>
+        <div class="time">
+          <p data-created></p>
+          <p data-due></p>
+        </div>
+      </li>
+    </template>
     <script src="./js/main.js"></script>
   </body>
 </html>

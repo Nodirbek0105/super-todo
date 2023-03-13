@@ -35,6 +35,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 10px;
 }
 
@@ -56,19 +57,40 @@ li {
   width: 100%;
   margin: 2px 0;
   list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 1px dashed black;
 }
-li div[data-parent-div] {
+li * {
+  flex-wrap: wrap;
+}
+li p {
+  padding: 5px;
+  margin-bottom: 0;
+}
+li div[data-div-parent] {
   padding: 5px;
   height: 100%;
-  border: 1px dashed black;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-direction: row !important;
   gap: 10px;
 }
-li div[data-parent-div] div {
+li div[data-div-parent] div {
   word-break: break-word;
 }
-li div[data-parent-div] img {
+li div[data-div-parent] img {
   transform: scale(0.8);
+}
+
+.time {
+  display: flex;
+  align-items: center;
+  gap: 5%;
+}
+
+p {
+  width: 100%;
 }/*# sourceMappingURL=main.css.map */
