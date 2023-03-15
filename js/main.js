@@ -4,9 +4,16 @@ let elUl = document.querySelector("[data-ul]");
 let elTime = new Date();
 let elTemplate = document.querySelector("template");
 let a = 0;
-let todos = [];
+let todos;
+if (getP() !== null) {
+  todos = getP();
+  setP(todos)
+}
+if (getP() === null) {
+  todos = [];
+}
 
-renderTodo(getP());
+renderTodo(todos);
 
 elForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
@@ -62,25 +69,25 @@ function deleteTodo(e) {
 
 function renderTodo(todos) {
   elUl.innerHTML = "";
-  // todos.forEach((todo) => {
-  // })
-  for (let i = 0; i < todos.length; i++) {
-    const todo = todos[i];
+  todos.forEach((todo) => {
     elUl.append(createTodo(todo));
-  }
+  })
+  // for (let i = 0; i < todos.length; i++) {
+  //   const todo = todos[i];
+  // }
   // todos.forEach((todo) => {
   // });
 }
 
 function getP() {
-  let poke = localStorage.getItem("ad" || "[]");
+  let poke = localStorage.getItem("todos" || "[]");
   let pokem = JSON.parse(poke);
   return pokem;
 }
 function setP(array) {
   let poke = array;
   let pok = JSON.stringify(poke);
-  localStorage.setItem("ad", `${pok}`);
+  localStorage.setItem("todos", `${pok}`);
 }
 function id() {
   return (a += 1);
